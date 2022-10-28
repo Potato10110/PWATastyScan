@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #ffde59;
+}
+.profilePic,
+img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.profilePic .userName {
+  text-align: center;
+  margin-top: 10px;
+  color: #008037;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.profilePic {
+  z-index: 0;
+}
+button,
+.submitBtn,
+.logoutbtn {
+  z-index: 1;
+}
+.submitBtn {
+  width: 100%;
+  margin-top: 30px;
+  font-size: small;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  background-color: #008037;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.logoutbtn {
+  width: 100%;
+  font-size: small;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 90px;
+  background-color: darkred;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+.backBtn {
+  padding: 10px;
+  margin: 35px 0px 0px 20px;
+  width: 70px;
+  background-color: #008037;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .backBtn {
+    width: 60px;
+    padding: 5px;
+  }
+}

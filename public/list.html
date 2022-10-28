@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="icons/manifest-icon-192.maskable.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/list.css" />
+    <title>List</title>
+  </head>
+  <body>
+    <h1 class="title">Grocery List</h1>
+    <div class="inputBox">
+      <input type="text" id="userInput" placeholder="Enter a item" />
+    </div>
+    <div class="buttons">
+      <button id="addBtn" class="add" type="button">Add</button>
+      <button id="clearBtn" class="clear" type="button">Clear list</button>
+    </div>
+    <div class="groceries">
+      <div id="allItems"></div>
+    </div>
+
+    <nav class="navmenu">
+      <ul>
+        <li>
+          <a href="homepage.html"
+            ><img src="/public/images/home.png" alt="homepage" class="navIcons"
+          /></a>
+        </li>
+        <li>
+          <a href="search.html"
+            ><img src="/public/images/search.png" alt="search" class="navIcons"
+          /></a>
+        </li>
+        <li>
+          <a href="list.html"
+            ><img src="/public/images/files.png" alt="list" class="navIcons"
+          /></a>
+        </li>
+        <li>
+          <a href="userRecipe.html"
+            ><img
+              src="/public/images/heart.png"
+              alt="favorites"
+              class="navIcons"
+          /></a>
+        </li>
+      </ul>
+    </nav>
+    <script src="/public/js/list.js"></script>
+  </body>
+</html>

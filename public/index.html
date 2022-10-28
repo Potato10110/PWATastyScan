@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fbc02d" />
+    <link rel="apple-touch-icon" href="icons/apple-icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fbc02d" />
+    <meta name="apple-mobile-web-app-title" content="TastyScan" />
+    <meta
+      name="msapplication-TileImage"
+      content="icons/manifest-icon-192.png"
+    />
+    <meta name="msapplication-TileColor" content="#FFDE59" />
+    <title>TastyScan</title>
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link
+      rel="icon"
+      href="icons/manifest-icon-192.maskable.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login">
+        <h1 class="appName">TastyScan</h1>
+        <p>Log in with</p>
+        <div class="loginBtn">
+          <button id="SignInWithGoogle" type="button">
+            <img src="images/google.png" alt="google" class="google" />Google
+          </button>
+        </div>
+        <div class="loginBtn">
+          <button id="SignInWithFacebook" class="facebook" type="button">
+            <img src="images/facebook.png" alt="facebook" class="fb" /> Facebook
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="js/login.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

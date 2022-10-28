@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send your recipe</title>
+    <link rel="stylesheet" href="/public/css/recipeForm.css" />
+    <link
+      rel="icon"
+      href="icons/manifest-icon-192.maskable.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <button id="backBtn" class="backBtn">back</button>
+    <h1 class="title">Recipe Form</h1>
+    <form class="recipeForm" id="recipeForm">
+      <div class="container">
+        <input id="userName" class="userName" type="text" placeholder="Enter your name" />
+        <input id="recipeName" class="recipeName" type="text" placeholder="Enter recipe name" />
+        <input
+          id="cookingTime"
+          class="cookingTime"
+          type="text"
+          placeholder="Enter cooking time"
+        /><br />
+        <label for="MealType">Meal Type: </label>
+        <select name="" id="MealType" class="mealType">
+          <option selected disabled>--Choose one--</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Snack">Snack</option>
+        </select>
+        <input id="servings" class="servings" type="text" placeholder="No. of servings" /><br />
+        <label for=""
+          >Enter the ingredients:
+          <textarea
+            name=""
+            id="ingredients"
+            class="ingredients"
+            cols="120"
+            rows="7"
+            placeholder="Type the ingredients"
+          ></textarea></label
+        ><br />
+        <label for=""
+          >Enter the instructions:
+          <textarea
+            name=""
+            id="instructions"
+            class="instructions"
+            cols="120"
+            rows="7"
+            placeholder="Enter the instructions"
+          ></textarea></label
+        ><br />
+        <div class="box">
+          <label for="fileBtn">Upload an image of the dish: </label>
+          <input class="fileBtn" type="file" id="fileBtn" />
+        </div>
+        
+        <br />
+        <div class="submit">
+          <button class="submitBtn" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="/public/js/recipeForm.js"></script>
+  </body>
+</html>

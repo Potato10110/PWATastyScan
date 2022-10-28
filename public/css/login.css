@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    max-height: 786px;
+    max-width: 393px;
+}
+.container{
+    width: 70%;
+    margin: auto;
+}
+body{
+    background-color: #ffde59;
+}
+.appName{
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    color: #008037;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #008037;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.loginBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.facebook{
+    background-color: #1877F2;
+    color: #ffffff;
+}
+button{
+    width: 70%;
+    padding: 7px;
+    white-space: nowrap;
+    margin: 6px;
+    font-size: small;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.login{
+    margin-top: 50%;
+}
+.fb, .google{
+    margin-right: 20px;
+}

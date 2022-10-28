@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="icons/manifest-icon-192.maskable.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/public/css/search.css" />
+    <title>Search</title>
+  </head>
+  <body>
+    <div class="box">
+      <form>
+        <input id="input" type="text" placeholder="Search your recipe..." />
+        <button id="searchBtn">
+          Search
+          <img class="searchBtn" src="images/yellowSearch.png" alt="search" />
+        </button>
+      </form>
+    </div>
+
+    <div class="filters">
+      <div class="flex-box">
+        <button class="filter-items" id="low-sugar-btn">Low Sugar</button>
+        <button class="filter-items" id="breakfast-btn">BreakFast</button>
+        <button class="filter-items" id="lunch-btn">Lunch</button>
+        <button class="filter-items" id="dinner-btn">Dinner</button>
+        <button class="filter-items" id="snack-btn">Snack</button>
+      </div>
+    </div>
+    <div id="filter-results"></div>
+    <div class="search-result">
+      <!-- <div class="item">
+            <img src="./img-1.jpg" alt="">
+            <div class="flex-container">
+              <h1 class="title">This is a recipe item</h1>
+              <a class="view-btn" href="#">View Recipe</a>
+            </div>
+            <p class="item-data">Calories: 120</p>
+          </div> -->
+    </div>
+
+    <nav class="navmenu">
+      <ul>
+        <li>
+          <a id="nav" href="homepage.html"
+            ><img src="images/home.png" alt="homepage" class="navIcons"
+          /></a>
+        </li>
+        <li>
+          <a id="nav" href="search.html"
+            ><img src="images/search.png" alt="search" class="navIcons"
+          /></a>
+        </li>
+        <li>
+          <a id="nav" href="list.html"
+            ><img src="images/files.png" alt="list" class="navIcons"
+          /></a>
+        </li>
+        <li>
+          <a id="nav" href="userRecipe.html"
+            ><img src="images/heart.png" alt="favorites" class="navIcons"
+          /></a>
+        </li>
+      </ul>
+    </nav>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/search.js"></script>
+  </body>
+</html>
