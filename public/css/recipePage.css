@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ffde59;
+}
+img{
+    width: 100%;
+    object-fit: cover;
+}
+.recipeTitle{
+    font-family: "Lobster", cursive;
+    padding: 10px 0;
+    text-align: center;
+    color: #008037;
+    margin-bottom: 5px;
+}
+.flex-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.User-name{
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 20px;
+}
+.ingredients{
+    font-family: "Lobster", cursive;
+    text-align: center;
+    color: #008037;
+}
+.instructions{
+    font-family: "Lobster", cursive;
+    text-align: center;
+    color: #008037;
+}
+.ingredients-part{
+    margin: 10px 20px;
+    text-align: justify;
+}
+.instructions-part{
+    margin: 10px 20px;
+    text-align: justify;
+}

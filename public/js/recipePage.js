@@ -27,9 +27,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-//db.settings({timestampsInSnapshots: true})
-
-const userRecipe = document.getElementById("userRecipe");
+const recipePage = document.getElementById("recipe-container");
 const recipeDB = collection(db, "UserRecipes");
 
 onSnapshot(recipeDB, (snapshot) => {
@@ -45,22 +43,26 @@ function renderRecipe(recipes) {
   let recipeHTML = "";
   recipes.map((result) => {
     recipeHTML += `
-    <div class="items">
-        <img src="/public/images/food.jpg" alt="food" />
-        <div class="box">
-          <div class="flex-container">
-            <h1>${result.recipeName}</h1>
-            <a href="recipePage.html" class="view-btn" target="_self">View Recipe</a>
-          </div>
-          <p class="item-data user">${result.name}</p>
-          <div class="flex-container">
-            <p class="item-data">${result.mealType}</p>
-            <p class="item-data">${result.cookingTime}</p>
-            <p class="item-data">${result.servings} Servings</p>
-          </div>
-        </div>
+      <img src="/public/images/food.jpg" alt="food" />
+      <h1 class="recipeTitle">${result.recipeName}</h1>
+      <p class="User-name">By: ${result.name}</p>
+      <div class="flex-container">
+        <p>${result.mealType}</p>
+        <p>${result.cookingTime}</p>
+        <p>${result.servings}</p>
       </div>
-    `;
+      <div class="ingredients-part">
+        <h1 class="ingredients">Ingredients</h1>
+        <p>
+          ${result.ingredients}
+        </p>
+      </div>
+      <div class="instructions-part">
+        <h1 class="instructions">Instructions</h1>
+        <p>
+          ${result.instruction}
+        </p>
+      </div>`;
   });
-  userRecipe.innerHTML = recipeHTML;
+  recipePage.innerHTML = recipeHTML;
 }
