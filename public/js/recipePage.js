@@ -49,7 +49,7 @@ function renderRecipe(recipes) {
       <div class="flex-container">
         <p>${result.mealType}</p>
         <p>${result.cookingTime}</p>
-        <p>${result.servings}</p>
+        <p>${result.servings} Serving/s</p>
       </div>
       <div class="ingredients-part">
         <h1 class="ingredients">Ingredients</h1>
