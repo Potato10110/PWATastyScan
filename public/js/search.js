@@ -16,7 +16,7 @@ searchBtn.addEventListener("submit", (e) => {
 });
 
 async function fetchAPI() {
-  const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5`;
+  const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   generateHTML(data.hits);
@@ -75,7 +75,7 @@ lowSugarBtn.addEventListener("click", (e) => {
 });
 
 async function lowSugarAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&health=low-sugar`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&health=low-sugar&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   lowSugarHTML(data.hits);
@@ -126,7 +126,7 @@ breakfastBtn.addEventListener("click", (e) => {
 });
 
 async function BreakfastAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=breakfast`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=breakfast&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   breakfastHTML(data.hits);
@@ -177,7 +177,7 @@ lunchBtn.addEventListener("click", (e) => {
 });
 
 async function LunchAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=lunch`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=lunch&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   lunchHTML(data.hits);
@@ -228,7 +228,7 @@ dinnerBtn.addEventListener("click", (e) => {
 });
 
 async function DinnerAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=lunch`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=dinner&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   DinnerHTML(data.hits);
@@ -279,7 +279,7 @@ snackBtn.addEventListener("click", (e) => {
 });
 
 async function SnackAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=snack`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=snack&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   SnackHTML(data.hits);
