@@ -25,6 +25,8 @@ img{
     justify-content: space-around;
     margin: 10px 20px;
     font-family: Arial, Helvetica, sans-serif;
+    border-bottom: #000000 solid 2px;
+    padding: 10px 0;
 }
 .User-name{
     font-size: 1rem;

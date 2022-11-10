@@ -65,7 +65,7 @@ addRecipe.addEventListener("submit", (e) => {
     instruction: $("#instructions").val(),
   }).then(() => {
     addRecipe.reset();
-    alert("Submit Succesfully");
+    swal("Done!", "You submit the recipe!", "success");
   });
 });
 
