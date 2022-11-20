@@ -5,18 +5,17 @@ const allItems = document.getElementById("allItems");
 const userInput = document.getElementById("userInput");
 
 clearBtn.addEventListener("click", () => {
-    allItems.innerHTML = "";
-})
+  allItems.innerHTML = "";
+});
 
 addBtn.addEventListener("click", () => {
-    var p = document.createElement("p");
-    p.innerHTML = "- " + userInput.value;
+  var p = document.createElement("p");
+  p.innerHTML = "- " + userInput.value;
 
-    p.addEventListener("click", ()=> {
-        p.style.textDecoration = "line-through";
-    })
-    allItems.insertAdjacentElement("beforeend", p);
+  p.addEventListener("click", () => {
+    p.style.textDecoration = "line-through";
+  });
+  allItems.insertAdjacentElement("beforeend", p);
 
-    userInput.value = ""
-})  
-
+  userInput.value = "";
+});
