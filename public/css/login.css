@@ -5,10 +5,6 @@
     margin: 0;
     box-sizing: border-box;
 }
-html{
-    max-height: 786px;
-    max-width: 393px;
-}
 .container{
     width: 70%;
     margin: auto;
@@ -44,7 +40,7 @@ p{
     color: #ffffff;
 }
 button{
-    width: 70%;
+    width: 10rem;
     padding: 7px;
     white-space: nowrap;
     margin: 6px;
@@ -58,7 +54,7 @@ button{
     z-index: 1;
 }
 .login{
-    margin-top: 60%;
+    margin-top: 30vh;
 }
 .fb, .google{
     margin-right: 20px;

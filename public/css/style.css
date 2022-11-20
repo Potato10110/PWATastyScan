@@ -3,10 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-html{
-  max-height: 786px;
-  max-width: 393px;
-}
+
 body {
   background-color: #ffde59;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",

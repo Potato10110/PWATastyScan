@@ -31,7 +31,7 @@ const db = getFirestore(app);
 
 const userRecipe = document.getElementById("userRecipe");
 const recipeDB = collection(db, "UserRecipes");
-
+ 
 onSnapshot(recipeDB, (snapshot) => {
   let recipe = [];
   snapshot.docs.forEach((doc) => {
@@ -46,7 +46,7 @@ function renderRecipe(recipes) {
   recipes.map((result) => {
     recipeHTML += `
     <div class="items">
-        <img src="/public/images/food.jpg" alt="food" />
+        <img src="images/food.jpg" alt="food" />
         <div class="box">
           <div class="flex-container">
             <h1>${result.recipeName}</h1>
