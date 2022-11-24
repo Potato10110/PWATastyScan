@@ -53,13 +53,13 @@ function renderRecipe(recipes) {
       </div>
       <div class="ingredients-part">
         <h1 class="ingredients">Ingredients</h1>
-        <p>
+        <p class="recipeDetails">
           ${result.ingredients}
         </p>
       </div>
       <div class="instructions-part">
         <h1 class="instructions">Instructions</h1>
-        <p>
+        <p class="recipeDetails">
           ${result.instruction}
         </p>
       </div>`;
