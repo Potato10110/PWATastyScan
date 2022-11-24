@@ -9,11 +9,11 @@ body{
     background-color: #ffde59;
 }
 img{
+    height: 300px;
     width: 100%;
     object-fit: cover;
 }
 .recipeTitle{
-    font-size: 1.5rem;
     font-family: "Lobster", cursive;
     padding: 10px 0;
     text-align: center;
@@ -53,4 +53,10 @@ img{
 .instructions-part{
     margin: 10px 20px;
     text-align: justify;
+}
+.recipeDetails{
+    line-height: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    white-space: pre-line;
 }
