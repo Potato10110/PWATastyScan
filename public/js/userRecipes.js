@@ -37,7 +37,7 @@ onSnapshot(recipeDB, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     recipe.push({ ...doc.data(), id: doc.id });
   });
-  console.table(recipe);
+  //console.table(recipe);
   renderRecipe(recipe);
 });
 
