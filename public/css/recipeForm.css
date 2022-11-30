@@ -48,7 +48,6 @@ input[type="text"] {
   margin: 5px 0px;
   padding: 6px;
   border: none;
-  border-bottom: solid 1px black;
   border-radius: 5px;
   width: 100%;
 }
@@ -86,6 +85,9 @@ input[type="file"]::-webkit-file-upload-button {
   border-radius: 5px;
   font-weight: bold;
 }
+select{
+  display: block;
+}
 .submit {
   display: flex;
   justify-content: flex-end;
@@ -108,10 +110,11 @@ input[type="file"]::-webkit-file-upload-button {
 }
 @media only screen and (max-width: 600px) {
   .title {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin-top: 10px;
   }
   label {
-    font-size: smaller;
+    font-size: medium;
   }
   .box {
     display: block;
@@ -126,6 +129,11 @@ input[type="file"]::-webkit-file-upload-button {
   }
   input[type="text"] {
     font-size: x-small;
+    padding: 10px;
+  }
+  .container{
+    width: 75%;
+    margin: auto;
   }
 }
 @media only screen and (min-width: 600px) {
