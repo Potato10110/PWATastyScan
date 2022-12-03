@@ -8,6 +8,10 @@
 body{
     background-color: #ffde59;
 }
+.container{
+    width: 90%;
+    margin: auto;
+}
 img{
     height: 300px;
     width: 100%;

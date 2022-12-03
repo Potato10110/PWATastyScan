@@ -27,7 +27,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-const recipePage = document.getElementById("recipe-container");
+const recipePage = document.getElementById("recipeBox");
 const recipeDB = collection(db, "UserRecipes");
 
 onSnapshot(recipeDB, (snapshot) => {
@@ -44,6 +44,7 @@ function renderRecipe(recipes) {
   recipes.map((result) => {
     recipeHTML += `
       <img src="/public/images/food.jpg" alt="food" />
+      <div class="container">
       <h1 class="recipeTitle">${result.recipeName}</h1>
       <p class="User-name">By: ${result.name}</p>
       <div class="flex-container">
@@ -62,6 +63,7 @@ function renderRecipe(recipes) {
         <p class="recipeDetails">
           ${result.instruction}
         </p>
+      </div>
       </div>`;
   });
   recipePage.innerHTML = recipeHTML;
