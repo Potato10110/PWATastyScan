@@ -3,7 +3,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase
 import {
   getFirestore,
   collection,
-  getDocs,
+  getDoc,
   onSnapshot,
   doc,
 } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js";
@@ -38,6 +38,7 @@ onSnapshot(recipeDB, (snapshot) => {
   //console.table(recipe);
   renderRecipe(recipe);
 });
+
 
 function renderRecipe(recipes) {
   let recipeHTML = "";
