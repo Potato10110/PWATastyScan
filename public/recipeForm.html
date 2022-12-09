@@ -15,12 +15,15 @@
   <body>
     <button id="backBtn" class="backBtn">back</button>
     <h1 class="title">Recipe Form</h1>
-    <form class="recipeForm" id="recipeForm">
+    <form class="recipeForm" id="recipeForm" onsubmit="validateForm()">
       <div class="container">
+        <h3 class="direction">Please fill out all fields in the form:</h3>
         <label for="usernName">Name:</label>
         <input id="userName" class="userName" type="text" placeholder="Enter your name" required/>
+        <span id="nameError" class="error"></span>
         <label for="recipeName">Recipe Name:</label>
         <input id="recipeName" class="recipeName" type="text" placeholder="Enter recipe name" required/>
+        <span id="recipeError" class="error"></span>
         <label for="cookingTime">Time:</label>
         <input
           id="cookingTime"
@@ -29,6 +32,7 @@
           placeholder="Enter cooking time"
           required
         /><br />
+        <span id="timeError" class="error"></span>
         <label for="MealType">Meal Type: </label>
         <select name="" id="MealType" class="mealType" required>
           <option selected disabled>--Choose one--</option>
@@ -37,8 +41,10 @@
           <option value="Dinner">Dinner</option>
           <option value="Snack">Snack</option>
         </select>
+        <span id="mealError" class="error"></span>
         <label for="servings">Servings:</label>
         <input id="servings" class="servings" type="text" placeholder="No. of servings" required/><br />
+        <span id="servingError" class="error"></span>
         <label for=""
           >Enter the ingredients:
           <textarea
@@ -51,6 +57,7 @@
             required
           ></textarea></label
         ><br />
+        <span id="ingredientError" class="error"></span>
         <label for=""
           >Enter the instructions:
           <textarea
@@ -63,6 +70,7 @@
             required
           ></textarea></label
         ><br />
+        <span id="instructionError" class="error"></span>
         <div class="box">
           <label for="fileBtn">Upload an image of the dish: </label>
           <input class="fileBtn" type="file" id="image"  required/>

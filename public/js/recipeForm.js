@@ -61,16 +61,6 @@ const recipeDB = collection(db, "UserRecipes");
 const addRecipe = document.querySelector(".recipeForm");
 addRecipe.addEventListener("submit", (e) => {
   e.preventDefault();
-});
-
-const backBtn = document.getElementById("backBtn");
-backBtn.addEventListener("click", () => {
-  window.location.assign("./profile.html");
-});
-
-const submitBtn = document.getElementById("submitBtn");
-submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
 
   addDoc(recipeDB, {
     added_at: Date(),
@@ -85,6 +75,87 @@ submitBtn.addEventListener("click", (e) => {
     addRecipe.reset();
     swal("Done!", "You submit the recipe!", "success");
   });
+});
+
+const backBtn = document.getElementById("backBtn");
+backBtn.addEventListener("click", () => {
+  window.location.assign("./profile.html");
+});
+
+function validateForm() {
+  // Get the values of the input fields
+  var name = document.getElementById("userName").value;
+  var recipeName = document.getElementById("recipeName").value;
+  var time = document.getElementById("cookingTime").value;
+  var mealtype = document.getElementById("MealType").value;
+  var servings = document.getElementById("servings").value;
+  var ingredient = document.getElementById("ingredients").value;
+  var instruction = document.getElementById("instructions").value;
+
+  // Set the error messages to an empty string
+  document.getElementById("nameError").innerHTML = "";
+  document.getElementById("recipeError").innerHTML = "";
+  document.getElementById("timeError").innerHTML = "";
+  document.getElementById("mealError").innerHTML = "";
+  document.getElementById("servingError").innerHTML = "";
+  document.getElementById("ingredientError").innerHTML = "";
+  document.getElementById("instructionError").innerHTML = "";
+
+  // Flag variable to track whether there are any errors
+  var hasErrors = false;
+
+  // Validate the name field
+  if (name === "") {
+    document.getElementById("nameError").innerHTML = "Please enter your name";
+    hasErrors = true;
+  }
+
+  // Validate the email field
+  if (recipeName === "") {
+    document.getElementById("recipeError").innerHTML =
+      "Please enter a recipe name";
+    hasErrors = true;
+  }
+
+  if (time === "") {
+    document.getElementById("timeError").innerHTML =
+      "Please enter an estimate time of cooking";
+    hasErrors = true;
+  }
+
+  if (mealtype === "") {
+    document.getElementById("mealError").innerHTML = "Please pick a meal type";
+    hasErrors = true;
+  }
+
+  if (servings === "") {
+    document.getElementById("servingError").innerHTML =
+      "Please enter an  estimate servings";
+    hasErrors = true;
+  }
+
+  if (ingredient === "") {
+    document.getElementById("ingredientError").innerHTML =
+      "Please enter a list of ingredients";
+    hasErrors = true;
+  }
+
+  if (instruction === "") {
+    document.getElementById("instructionError").innerHTML =
+      "Please enter instructions";
+    hasErrors = true;
+  }
+
+  // Enable or disable the submit button based on whether there are any errors
+  document.getElementById("submitBtn").disabled = hasErrors;
+
+  // Return whether there were any errors
+  return !hasErrors;
+}
+
+const submitBtn = document.getElementById("submitBtn");
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
   var metadata = {
     contentType: "Images",
