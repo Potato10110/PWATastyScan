@@ -61,6 +61,16 @@ const recipeDB = collection(db, "UserRecipes");
 const addRecipe = document.querySelector(".recipeForm");
 addRecipe.addEventListener("submit", (e) => {
   e.preventDefault();
+});
+
+const backBtn = document.getElementById("backBtn");
+backBtn.addEventListener("click", () => {
+  window.location.assign("./profile.html");
+});
+
+const submitBtn = document.getElementById("submitBtn");
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
   addDoc(recipeDB, {
     added_at: Date(),
@@ -75,19 +85,9 @@ addRecipe.addEventListener("submit", (e) => {
     addRecipe.reset();
     swal("Done!", "You submit the recipe!", "success");
   });
-});
-
-const backBtn = document.getElementById("backBtn");
-backBtn.addEventListener("click", () => {
-  window.location.assign("./profile.html");
-});
-
-const submitBtn = document.getElementById("submitBtn");
-submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
 
   var metadata = {
-    contentType: 'Images'
+    contentType: "Images",
   };
 
   var file = document.querySelector("#image").files[0];
@@ -95,7 +95,6 @@ submitBtn.addEventListener("click", (e) => {
   const storageRef = ref(storage, "images/" + file.name);
 
   const uploadTask = uploadBytesResumable(storageRef, file, metadata);
-
   uploadTask.on(
     "state_changed",
     (snapshot) => {
@@ -133,10 +132,9 @@ submitBtn.addEventListener("click", (e) => {
       // Upload completed successfully, now we can get the download URL
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
         console.log("File available at", downloadURL);
+
+        // Set the new data at the specified location
       });
     }
   );
 });
-
-
-  

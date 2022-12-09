@@ -44,7 +44,7 @@ function renderRecipe(recipes) {
   let recipeHTML = "";
   recipes.map((result) => {
     recipeHTML += `
-      <img src="/public/images/food.jpg" alt="food" />
+      <img src="${result.ImageUrl}" />
       <div class="container">
       <h1 class="recipeTitle">${result.recipeName}</h1>
       <p class="User-name">By: ${result.name}</p>
