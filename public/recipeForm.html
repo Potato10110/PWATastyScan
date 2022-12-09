@@ -18,18 +18,19 @@
     <form class="recipeForm" id="recipeForm">
       <div class="container">
         <label for="usernName">Name:</label>
-        <input id="userName" class="userName" type="text" placeholder="Enter your name" />
+        <input id="userName" class="userName" type="text" placeholder="Enter your name" required/>
         <label for="recipeName">Recipe Name:</label>
-        <input id="recipeName" class="recipeName" type="text" placeholder="Enter recipe name" />
+        <input id="recipeName" class="recipeName" type="text" placeholder="Enter recipe name" required/>
         <label for="cookingTime">Time:</label>
         <input
           id="cookingTime"
           class="cookingTime"
           type="text"
           placeholder="Enter cooking time"
+          required
         /><br />
         <label for="MealType">Meal Type: </label>
-        <select name="" id="MealType" class="mealType">
+        <select name="" id="MealType" class="mealType" required>
           <option selected disabled>--Choose one--</option>
           <option value="Breakfast">Breakfast</option>
           <option value="Lunch">Lunch</option>
@@ -37,7 +38,7 @@
           <option value="Snack">Snack</option>
         </select>
         <label for="servings">Servings:</label>
-        <input id="servings" class="servings" type="text" placeholder="No. of servings" /><br />
+        <input id="servings" class="servings" type="text" placeholder="No. of servings" required/><br />
         <label for=""
           >Enter the ingredients:
           <textarea
@@ -47,6 +48,7 @@
             cols="120"
             rows="7"
             placeholder="Type the ingredients"
+            required
           ></textarea></label
         ><br />
         <label for=""
@@ -58,11 +60,12 @@
             cols="120"
             rows="7"
             placeholder="Enter the instructions"
+            required
           ></textarea></label
         ><br />
         <div class="box">
           <label for="fileBtn">Upload an image of the dish: </label>
-          <input class="fileBtn" type="file" id="image" />
+          <input class="fileBtn" type="file" id="image"  required/>
         </div>
         
         <br />
