@@ -9,6 +9,7 @@ var filesToCache = [
   "/public/recipeForm.html",
   "/public/recipePage.html",
   "/public/search.html",
+  "/public/Scan.html",
   "/css/style.css",
   "/css/login.css",
   "/css/list.css",
