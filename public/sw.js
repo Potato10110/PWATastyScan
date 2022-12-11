@@ -18,6 +18,7 @@ var filesToCache = [
   "/css/recipePage.css",
   "/css/search.css",
   "/css/userRecipe.css",
+  "/css/scan.css",
   "/js/main.js",
   "/js/login.js",
   "/js/list.js",
