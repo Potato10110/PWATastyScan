@@ -25,6 +25,7 @@ var filesToCache = [
   "/js/recipePage.js",
   "/js/search.js",
   "/js/userRecipe.js",
+  "/js/homepage.js",
   "/images",
   "/images/food.jpg",
   "/icons",
