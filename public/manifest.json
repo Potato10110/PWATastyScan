@@ -1,7 +1,7 @@
 {
     "name": "TastyScan",
     "short_name": "TastyScan",
-    "start_url": "/index.html",
+    "start_url": "/public/index.html",
     "lang": "en-US",
     "background_color": "#FFDE59",
     "theme_color": "#fbc02d",
