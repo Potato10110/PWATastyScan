@@ -1,7 +1,10 @@
 var CacheName = "App-cache";
-var filesToCache = [
+var CachesFiles = [
   "/",
   "/public",
+  "/public/metadata.json",
+  "/public/model.json",
+  "/public/weights.bin",
   "/public/index.html",
   "/public/homepage.html",
   "/public/list.html",
@@ -10,33 +13,33 @@ var filesToCache = [
   "/public/recipePage.html",
   "/public/search.html",
   "/public/Scan.html",
-  "/css/style.css",
-  "/css/login.css",
-  "/css/list.css",
-  "/css/profile.css",
-  "/css/recipeForm.css",
-  "/css/recipePage.css",
-  "/css/search.css",
-  "/css/userRecipe.css",
-  "/css/scan.css",
-  "/js/main.js",
-  "/js/login.js",
-  "/js/list.js",
-  "/js/profile.js",
-  "/js/recipeForm.js",
-  "/js/recipePage.js",
-  "/js/search.js",
-  "/js/userRecipe.js",
-  "/js/homepage.js",
-  "/images",
-  "/images/food.jpg",
-  "/icons",
+  "/public/css/style.css",
+  "/public/css/login.css", 
+  "/public/css/list.css",
+  "/public/css/profile.css",
+  "/public/css/recipeForm.css",
+  "/public/css/recipePage.css",
+  "/public/css/search.css",
+  "/public/css/userRecipe.css",
+  "/public/css/scan.css",
+  "/public/js/main.js",
+  "/public/js/login.js",
+  "/public/js/list.js",
+  "/public/js/profile.js",
+  "/public/js/recipeForm.js",
+  "/public/js/recipePage.js",
+  "/public/js/search.js",
+  "/public/js/userRecipe.js",
+  "/public/js/homepage.js",
+  "/public/images",
+  "/public/images/food.jpg",
+  "/public/icons",
 ];
 
 self.addEventListener("install", function (e) {
   e.waitUntil(
-    caches.open(CacheName).then(function (cache) {
-      return cache.addAll(filesToCache);
+    caches.open(CacheName).then(function (Cache) {
+      return Cache.addAll(CachesFiles);
     })
   );
   self.skipWaiting();
