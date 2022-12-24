@@ -4,7 +4,8 @@ var Assets = [
   "/public",
   "/public/images",
   "/public/images/food.jpg",
-  "/public/icons",
+    
+
 ];
 
 self.addEventListener("install", function (e) {
