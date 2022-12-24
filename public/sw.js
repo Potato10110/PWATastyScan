@@ -1,12 +1,5 @@
 var CacheName = "App-cache";
-var Assets = [
-  "/",
-  "/public",
-  "/public/images",
-  "/public/images/food.jpg",
-    
-
-];
+var Assets = ["/", "/public", "/public/images", "/public/images/food.jpg"];
 
 self.addEventListener("install", function (e) {
   e.waitUntil(
