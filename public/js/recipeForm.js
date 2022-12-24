@@ -58,31 +58,17 @@ const recipeDB = collection(db, "UserRecipes");
     console.log(err.message);
   });
 */
-const addRecipe = document.querySelector(".recipeForm");
-addRecipe.addEventListener("submit", (e) => {
-  e.preventDefault();
+const addRecipe = document.querySelector("#recipeForm");
+/*addRecipe.addEventListener("submit", () => {
 
-  addDoc(recipeDB, {
-    added_at: Date(),
-    name: $("#userName").val(),
-    recipeName: $("#recipeName").val(),
-    cookingTime: $("#cookingTime").val(),
-    mealType: $("#MealType").val(),
-    servings: $("#servings").val(),
-    ingredients: $("#ingredients").val(),
-    instruction: $("#instructions").val(),
-  }).then(() => {
-    addRecipe.reset();
-    swal("Done!", "You submit the recipe!", "success");
-  });
-});
+});*/
 
 const backBtn = document.getElementById("backBtn");
 backBtn.addEventListener("click", () => {
   window.location.assign("./profile.html");
 });
 
-function validateForm() {
+/*function validateForm() {
   // Get the values of the input fields
   var name = document.getElementById("userName").value;
   var recipeName = document.getElementById("recipeName").value;
@@ -152,16 +138,31 @@ function validateForm() {
   // Return whether there were any errors
   return !hasErrors;
 }
+*/
 
 const submitBtn = document.getElementById("submitBtn");
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
+  addDoc(recipeDB, {
+    added_at: Date(),
+    name: $("#userName").val(),
+    recipeName: $("#recipeName").val(),
+    cookingTime: $("#cookingTime").val(),
+    mealType: $("#MealType").val(),
+    servings: $("#servings").val(),
+    ingredients: $("#ingredients").val(),
+    instruction: $("#instructions").val(),
+  }).then(() => {
+    addRecipe.reset();
+    swal("Done!", "You submit the recipe!", "success");
+  });
+
   var metadata = {
     contentType: "Images",
   };
 
-  var file = document.querySelector("#image").files[0];
+  var file = document.querySelector("#Image").files[0];
   const storage = getStorage();
   const storageRef = ref(storage, "images/" + file.name);
 
