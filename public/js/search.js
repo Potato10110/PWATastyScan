@@ -14,6 +14,7 @@ searchBtn.addEventListener("submit", (e) => {
     fetchAPI();
   }
 });
+let sessionResult=[];
 
 async function fetchAPI() {
   const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&random=true`;
@@ -23,18 +24,50 @@ async function fetchAPI() {
   console.table(data);
 }
 
+$(document).ready(function () {
+  console.log ("document ready");
+ if (sessionStorage.sessionResult){
+    console.log (sessionStorage.sessionResult);
+    searchResultDiv.innerHTML = sessionStorage.sessionResult;
+ }
+ $(".health-labels").hide();
+});
+$(document).on("click", ".more-details.close",function () {
+  var thisParent=jQuery(this).parents(".item").eq(0);
+  console.log(thisParent);
+  var thisParent_id=jQuery(thisParent).attr("id");
+  console.log(thisParent_id);
+  var healthLabels=$(thisParent).find(".health-labels").eq(0);
+  jQuery(healthLabels).show();
+  $(this).addClass("open");
+  $(this).removeClass("close");
+  $(this).text("See Less");
+});
+$(document).on("click", ".more-details.open",function () {
+  var thisParent=jQuery(this).parents(".item").eq(0);
+  console.log(thisParent);
+  var thisParent_id=jQuery(thisParent).attr("id");
+  console.log(thisParent_id);
+  var healthLabels=$(thisParent).find(".health-labels").eq(0);
+  jQuery(healthLabels).hide();
+  $(this).addClass("close");
+  $(this).removeClass("open");
+  $(this).text("See More");
+});
+
+
 function generateHTML(results) {
   let generatedHTML = "";
+  let recipe_id=0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
-      $(".more-details").click(function () {
-        $(".health-labels").show();
-      });
     });
 
+    console.log (result)
+    recipe_id++;
     generatedHTML += `
-      <div class="item">
+      <div class="item" id="recipe${recipe_id}">
         <img src="${result.recipe.image}" alt="img">
         <div class="flex-container">
           <h1 class="title">${result.recipe.label}</h1>
@@ -51,7 +84,7 @@ function generateHTML(results) {
             ? result.recipe.dietLabels
             : "No Data Found"
         }</p>
-        <button class="more-details">See more details</button>
+        <button class="more-details close">See more details</button>
         <p class="item-data health-labels"><b>Health labels:</b> ${
           result.recipe.healthLabels
         }</p>
@@ -59,6 +92,9 @@ function generateHTML(results) {
     `;
   });
   searchResultDiv.innerHTML = generatedHTML;
+  
+  sessionStorage.setItem("sessionResult", generatedHTML);
+  console.log ( sessionStorage.getItem("sessionResult"));
 }
 // total time to cook
 //<p class="item-data"><b>Total time to cook:</b> ${result.recipe.totalTime}</p>
@@ -84,16 +120,14 @@ async function lowSugarAPI() {
 
 function lowSugarHTML(results) {
   let lowSugarHTML = "";
+  let recipe_id=0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
-      $(".more-details").click(function () {
-        $(".health-labels").show();
-      });
     });
-
+    recipe_id++;
     lowSugarHTML += `
-      <div class="filter-box">
+      <div class="filter-box item" id="recipe${recipe_id}">
         <img src="${result.recipe.image}" alt="img">
         <div class="flex-container">
           <h1 class="filter-title">${result.recipe.label}</h1>
@@ -110,7 +144,7 @@ function lowSugarHTML(results) {
             ? result.recipe.dietLabels
             : "No Data Found"
         }</p>
-        <button class="more-details">See more details</button>
+        <button class="more-details close">See more details</button>
         <p class="item-data health-labels"><b>Health labels:</b> ${
           result.recipe.healthLabels
         }</p>
@@ -135,16 +169,14 @@ async function BreakfastAPI() {
 
 function breakfastHTML(results) {
   let breakfastHTML = "";
+  let recipe_id=0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
-      $(".more-details").click(function () {
-        $(".health-labels").show();
-      });
     });
-
+    recipe_id++;
     breakfastHTML += `
-      <div class="filter-box">
+      <div class="filter-box item" id="recipe${recipe_id}">
         <img src="${result.recipe.image}" alt="img">
         <div class="flex-container">
           <h1 class="filter-title">${result.recipe.label}</h1>
@@ -161,7 +193,7 @@ function breakfastHTML(results) {
             ? result.recipe.dietLabels
             : "No Data Found"
         }</p>
-        <button class="more-details">See more details</button>
+        <button class="more-details close">See more details</button>
         <p class="item-data health-labels"><b>Health labels:</b> ${
           result.recipe.healthLabels
         }</p>
@@ -186,16 +218,14 @@ async function LunchAPI() {
 
 function lunchHTML(results) {
   let lunchHTML = "";
+  let recipe_id=0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
-      $(".more-details").click(function () {
-        $(".health-labels").show();
-      });
     });
-
+    recipe_id++;
     lunchHTML += `
-      <div class="filter-box">
+      <div class="filter-box item" id="recipe${recipe_id}" >
         <img src="${result.recipe.image}" alt="img">
         <div class="flex-container">
           <h1 class="filter-title">${result.recipe.label}</h1>
@@ -212,7 +242,7 @@ function lunchHTML(results) {
             ? result.recipe.dietLabels
             : "No Data Found"
         }</p>
-        <button class="more-details">See more details</button>
+        <button class="more-details close">See more details</button>
         <p class="item-data health-labels"><b>Health labels:</b> ${
           result.recipe.healthLabels
         }</p>
@@ -237,16 +267,14 @@ async function DinnerAPI() {
 
 function DinnerHTML(results) {
   let dinnerHTML = "";
+  let recipe_id=0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
-      $(".more-details").click(function () {
-        $(".health-labels").show();
-      });
     });
-
+    recipe_id++;
     dinnerHTML += `
-      <div class="filter-box">
+      <div class="filter-box item" id="recipe${recipe_id}" >
         <img src="${result.recipe.image}" alt="img">
         <div class="flex-container">
           <h1 class="filter-title">${result.recipe.label}</h1>
@@ -263,7 +291,7 @@ function DinnerHTML(results) {
             ? result.recipe.dietLabels
             : "No Data Found"
         }</p>
-        <button class="more-details">See more details</button>
+        <button class="more-details close">See more details</button>
         <p class="item-data health-labels"><b>Health labels:</b> ${
           result.recipe.healthLabels
         }</p>
@@ -288,16 +316,14 @@ async function SnackAPI() {
 
 function SnackHTML(results) {
   let snackHTML = "";
+  let recipe_id=0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
-      $(".more-details").click(function () {
-        $(".health-labels").show();
-      });
     });
-
+    recipe_id++;
     snackHTML += `
-      <div class="filter-box">
+      <div class="filter-box item" id="recipe${recipe_id}" >
         <img src="${result.recipe.image}" alt="img">
         <div class="flex-container">
           <h1 class="filter-title">${result.recipe.label}</h1>
@@ -314,7 +340,7 @@ function SnackHTML(results) {
             ? result.recipe.dietLabels
             : "No Data Found"
         }</p>
-        <button class="more-details">See more details</button>
+        <button class="more-details close">See more details</button>
         <p class="item-data health-labels"><b>Health labels:</b> ${
           result.recipe.healthLabels
         }</p>
