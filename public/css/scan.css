@@ -9,3 +9,73 @@ body {
     "Lucida Sans", Arial, sans-serif;
   overscroll-behavior-y: contain;
 }
+.startBtnDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.startBtn{
+  padding: 10px;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  border: none;
+  background-color: #24a0ed;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  color: white;
+  outline: none;
+}
+#webcam-container{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+canvas{
+  border-radius: 20px;
+}
+#label-container{
+  background-color: #ffffff;
+  padding: 25px;
+  margin: 20px;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  overflow: auto;
+  height: 340px;
+}
+.searchDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchBtn{
+  width: 50%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 20px;
+  border: none;
+  background-color: #008037;
+  color: #ffffff;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  letter-spacing: 2px;
+}
+#searchbtn{
+  position: fixed;
+  bottom: 0px;
+  margin-bottom: 70px;
+}
+@media (min-width: 480px){
+    .container{
+      width: 70%;
+      margin: auto;
+    }
+    .searchBtn{
+      width: 25%;
+    }
+}
