@@ -11,17 +11,16 @@ searchBtn.addEventListener("submit", (e) => {
   if (searchQuery == "") {
     alert("Error empty text");
   } else {
-    fetchAPI();
+    SearchRecipeAPI();
   }
 });
 let sessionResult=[];
 
-async function fetchAPI() {
+async function SearchRecipeAPI() {
   const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   generateHTML(data.hits);
-  console.table(data);
 }
 
 $(document).ready(function () {
@@ -115,7 +114,6 @@ async function lowSugarAPI() {
   const response = await fetch(baseURL);
   const data = await response.json();
   lowSugarHTML(data.hits);
-  console.table(data);
 }
 
 function lowSugarHTML(results) {
@@ -164,7 +162,6 @@ async function BreakfastAPI() {
   const response = await fetch(baseURL);
   const data = await response.json();
   breakfastHTML(data.hits);
-  console.table(data);
 }
 
 function breakfastHTML(results) {
@@ -213,7 +210,6 @@ async function LunchAPI() {
   const response = await fetch(baseURL);
   const data = await response.json();
   lunchHTML(data.hits);
-  console.table(data);
 }
 
 function lunchHTML(results) {
@@ -262,7 +258,6 @@ async function DinnerAPI() {
   const response = await fetch(baseURL);
   const data = await response.json();
   DinnerHTML(data.hits);
-  console.table(data);
 }
 
 function DinnerHTML(results) {
@@ -311,7 +306,6 @@ async function SnackAPI() {
   const response = await fetch(baseURL);
   const data = await response.json();
   SnackHTML(data.hits);
-  console.table(data);
 }
 
 function SnackHTML(results) {
