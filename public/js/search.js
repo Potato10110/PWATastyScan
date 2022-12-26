@@ -14,7 +14,7 @@ searchBtn.addEventListener("submit", (e) => {
     SearchRecipeAPI();
   }
 });
-let sessionResult=[];
+let sessionResult = [];
 
 async function SearchRecipeAPI() {
   const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&random=true`;
@@ -24,46 +24,45 @@ async function SearchRecipeAPI() {
 }
 
 $(document).ready(function () {
-  console.log ("document ready");
- if (sessionStorage.sessionResult){
-    console.log (sessionStorage.sessionResult);
+  console.log("document ready");
+  if (sessionStorage.sessionResult) {
+    console.log(sessionStorage.sessionResult);
     searchResultDiv.innerHTML = sessionStorage.sessionResult;
- }
- $(".health-labels").hide();
+  }
+  $(".health-labels").hide();
 });
-$(document).on("click", ".more-details.close",function () {
-  var thisParent=jQuery(this).parents(".item").eq(0);
+$(document).on("click", ".more-details.close", function () {
+  var thisParent = jQuery(this).parents(".item").eq(0);
   console.log(thisParent);
-  var thisParent_id=jQuery(thisParent).attr("id");
+  var thisParent_id = jQuery(thisParent).attr("id");
   console.log(thisParent_id);
-  var healthLabels=$(thisParent).find(".health-labels").eq(0);
+  var healthLabels = $(thisParent).find(".health-labels").eq(0);
   jQuery(healthLabels).show();
   $(this).addClass("open");
   $(this).removeClass("close");
   $(this).text("See Less");
 });
-$(document).on("click", ".more-details.open",function () {
-  var thisParent=jQuery(this).parents(".item").eq(0);
+$(document).on("click", ".more-details.open", function () {
+  var thisParent = jQuery(this).parents(".item").eq(0);
   console.log(thisParent);
-  var thisParent_id=jQuery(thisParent).attr("id");
+  var thisParent_id = jQuery(thisParent).attr("id");
   console.log(thisParent_id);
-  var healthLabels=$(thisParent).find(".health-labels").eq(0);
+  var healthLabels = $(thisParent).find(".health-labels").eq(0);
   jQuery(healthLabels).hide();
   $(this).addClass("close");
   $(this).removeClass("open");
   $(this).text("See More");
 });
 
-
 function generateHTML(results) {
   let generatedHTML = "";
-  let recipe_id=0;
+  let recipe_id = 0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
     });
 
-    console.log (result)
+    console.log(result);
     recipe_id++;
     generatedHTML += `
       <div class="item" id="recipe${recipe_id}">
@@ -91,9 +90,9 @@ function generateHTML(results) {
     `;
   });
   searchResultDiv.innerHTML = generatedHTML;
-  
+
   sessionStorage.setItem("sessionResult", generatedHTML);
-  console.log ( sessionStorage.getItem("sessionResult"));
+  console.log(sessionStorage.getItem("sessionResult"));
 }
 // total time to cook
 //<p class="item-data"><b>Total time to cook:</b> ${result.recipe.totalTime}</p>
@@ -118,7 +117,7 @@ async function lowSugarAPI() {
 
 function lowSugarHTML(results) {
   let lowSugarHTML = "";
-  let recipe_id=0;
+  let recipe_id = 0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
@@ -166,7 +165,7 @@ async function BreakfastAPI() {
 
 function breakfastHTML(results) {
   let breakfastHTML = "";
-  let recipe_id=0;
+  let recipe_id = 0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
@@ -214,7 +213,7 @@ async function LunchAPI() {
 
 function lunchHTML(results) {
   let lunchHTML = "";
-  let recipe_id=0;
+  let recipe_id = 0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
@@ -262,7 +261,7 @@ async function DinnerAPI() {
 
 function DinnerHTML(results) {
   let dinnerHTML = "";
-  let recipe_id=0;
+  let recipe_id = 0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
@@ -310,7 +309,7 @@ async function SnackAPI() {
 
 function SnackHTML(results) {
   let snackHTML = "";
-  let recipe_id=0;
+  let recipe_id = 0;
   results.map((result) => {
     $(document).ready(function () {
       $(".health-labels").hide();
