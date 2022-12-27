@@ -1,7 +1,7 @@
 window.onload = () => {
     'use strict';
 
-    navigator.serviceWorker.register('https://tastyscanpwa.web.app/public/Service-Worker.js').then(function(registration) {
+    navigator.serviceWorker.register('/public/Service-Worker.js').then(function(registration) {
       console.log('Service Worker registered with scope: ', registration.scope);
     }).catch(function(error) {
       console.error('Error registering Service Worker: ', error);
