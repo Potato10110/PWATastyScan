@@ -4,9 +4,7 @@ const addBtn = document.getElementById("addBtn");
 const allItems = document.getElementById("allItems");
 const userInput = document.getElementById("userInput");
 
-clearBtn.addEventListener("click", () => {
-  allItems.innerHTML = "";
-});
+
 
 addBtn.addEventListener("click", () => {
   if(userInput.value==""){
@@ -28,8 +26,14 @@ addBtn.addEventListener("click", () => {
   
   
 });
+
 $(document).ready(function () {
 if (sessionStorage.addedList){
   jQuery(allItems).html (sessionStorage.getItem("addedList"));
 }
+});
+
+clearBtn.addEventListener("click", () => {
+  allItems.innerHTML = "";
+  jQuery(allItems).html (sessionStorage.removeItem("addedList"));
 });

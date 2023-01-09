@@ -121,7 +121,7 @@ h1,
 h1 {
   font-size: large;
 }
-.search-result .title {
+.search-result, .title {
   color: whitesmoke;
   margin: 20px 10px 0 0;
   font-size: 1.4rem;
@@ -203,6 +203,6 @@ button {
 @media (max-width: 480px) {
   .title,
   h1 {
-    font-size: 0.5rem;
+    font-size: 1.4rem;
   }
 }

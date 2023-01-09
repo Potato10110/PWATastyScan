@@ -1,5 +1,5 @@
 const searchBtn = document.querySelector("form");
-const searchResultDiv = document.querySelector(".search-result");
+const searchResultDiv = document.querySelector("#filter-results");
 const container = document.querySelector(".container");
 let searchQuery = "";
 const APP_ID = "4c42e7f4";
@@ -16,11 +16,15 @@ searchBtn.addEventListener("submit", (e) => {
 });
 let sessionResult = [];
 
+let fromSearch = 0
+let toSearch = 5
 async function SearchRecipeAPI() {
-  const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&random=true`;
+  const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=${fromSearch}&to=${toSearch}&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   generateHTML(data.hits);
+  fromSearch += 6
+  toSearch += 6
 }
 
 $(document).ready(function () {
@@ -30,7 +34,10 @@ $(document).ready(function () {
     searchResultDiv.innerHTML = sessionStorage.sessionResult;
   }
   $(".health-labels").hide();
+
+  lowSugarFilter()
 });
+
 $(document).on("click", ".more-details.close", function () {
   var thisParent = jQuery(this).parents(".item").eq(0);
   console.log(thisParent);
@@ -42,6 +49,7 @@ $(document).on("click", ".more-details.close", function () {
   $(this).removeClass("close");
   $(this).text("See Less");
 });
+
 $(document).on("click", ".more-details.open", function () {
   var thisParent = jQuery(this).parents(".item").eq(0);
   console.log(thisParent);
@@ -98,21 +106,70 @@ function generateHTML(results) {
 //<p class="item-data"><b>Total time to cook:</b> ${result.recipe.totalTime}</p>
 const filterResult = document.getElementById("filter-results");
 const breakfastBtn = document.getElementById("breakfast-btn");
-const lowSugarBtn = document.getElementById("low-sugar-btn");
+// const lowSugarBtn = document.getElementById("low-sugar-btn");
+const lowSugarBtn = document.querySelector('#low-sugar-btn');
 const lunchBtn = document.getElementById("lunch-btn");
 const dinnerBtn = document.getElementById("dinner-btn");
 const snackBtn = document.getElementById("snack-btn");
 
-lowSugarBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+
+async function lowSugarFilter() {
+  const baseURL = `https://api.edamam.com/search?q=low-sugar&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&random=true`;
+  const response = await fetch(baseURL);
+  const data = await response.json();
+  lowSugarHealthHTML(data.hits);
+}
+
+function lowSugarHealthHTML(results) {
+  let lowSugarHealthHTML = "";
+  let recipe_id = 0;
+  results.map((result) => {
+    $(document).ready(function () {
+      $(".health-labels").hide();
+    });
+    recipe_id++;
+    lowSugarHealthHTML += `
+      <div class="filter-box item" id="recipe${recipe_id}">
+        <img src="${result.recipe.image}" alt="img">
+        <div class="flex-container">
+          <h1 class="filter-title">${result.recipe.label}</h1>
+          <a class="view-btn" target="_blank" href="${
+            result.recipe.url
+          }">View Recipe</a>
+        </div>
+        <p class="item-data"><b>Meal Type:</b> ${result.recipe.mealType}</p>
+        <p class="item-data"><b>Calories:</b> ${result.recipe.calories.toFixed(
+          2
+        )}</p>
+        <p class="item-data"><b>Diet label:</b> ${
+          result.recipe.dietLabels.length > 0
+            ? result.recipe.dietLabels
+            : "No Data Found"
+        }</p>
+        <button class="more-details close">See more details</button>
+        <p class="item-data health-labels"><b>Health labels:</b> ${
+          result.recipe.healthLabels
+        }</p>
+      </div>
+    `;
+  });
+  filterResult.innerHTML = lowSugarHealthHTML;
+}
+
+lowSugarBtn.addEventListener("click", () => {
+  // e.preventDefault();
   lowSugarAPI();
 });
 
+let fromParaLow = 0
+let toParaLow = 5
 async function lowSugarAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&health=low-sugar&random=true`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaLow}&to=${toParaLow}&health=low-sugar&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   lowSugarHTML(data.hits);
+  fromParaLow += 6
+  toParaLow += 6
 }
 
 function lowSugarHTML(results) {
@@ -156,11 +213,15 @@ breakfastBtn.addEventListener("click", (e) => {
   BreakfastAPI();
 });
 
+let fromParaBreak = 0
+let toParaBreak = 5
 async function BreakfastAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=breakfast&random=true`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaBreak}&to=${toParaBreak}&mealType=breakfast&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   breakfastHTML(data.hits);
+  fromParaBreak += 6
+  toParaBreak += 6
 }
 
 function breakfastHTML(results) {
@@ -204,11 +265,15 @@ lunchBtn.addEventListener("click", (e) => {
   LunchAPI();
 });
 
+let fromParaLunch = 0
+let toParaLunch = 5
 async function LunchAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=lunch&random=true`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaLunch}&to=${toParaLunch}&mealType=lunch&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   lunchHTML(data.hits);
+  fromParaLunch += 6
+  toParaLunch += 6
 }
 
 function lunchHTML(results) {
@@ -252,11 +317,15 @@ dinnerBtn.addEventListener("click", (e) => {
   DinnerAPI();
 });
 
+let fromParaDin = 0
+let toParaDin = 5
 async function DinnerAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=dinner&random=true`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaDin}&to=${toParaDin}&mealType=dinner&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   DinnerHTML(data.hits);
+  fromParaDin += 6
+  toParaDin += 6
 }
 
 function DinnerHTML(results) {
@@ -300,11 +369,15 @@ snackBtn.addEventListener("click", (e) => {
   SnackAPI();
 });
 
+let fromParaSn = 0
+let toParaSn = 5
 async function SnackAPI() {
-  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&mealType=snack&random=true`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaSn}&to=${toParaSn}&mealType=snack&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   SnackHTML(data.hits);
+  fromParaSn += 6
+  toParaSn += 6
 }
 
 function SnackHTML(results) {

@@ -9,12 +9,12 @@ body {
     "Lucida Sans", Arial, sans-serif;
   overscroll-behavior-y: contain;
 }
-.startBtnDiv{
+.startBtnDiv {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.startBtn{
+.startBtn {
   padding: 10px;
   width: 200px;
   margin-top: 10px;
@@ -29,15 +29,16 @@ body {
   color: white;
   outline: none;
 }
-#webcam-container{
- display: flex;
- align-items: center;
- justify-content: center;
+#webcam-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-canvas{
+canvas {
   border-radius: 20px;
 }
-#label-container{
+#label-container {
   background-color: #ffffff;
   padding: 25px;
   margin: 20px;
@@ -47,12 +48,15 @@ canvas{
   overflow: auto;
   height: 340px;
 }
-.searchDiv{
+.searchDiv {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.searchBtn{
+.searchBtnn {
+  position: fixed;
+  bottom: 0px;
+  margin-bottom: 80px;
   width: 50%;
   padding: 10px;
   font-size: 1rem;
@@ -65,17 +69,20 @@ canvas{
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   letter-spacing: 2px;
 }
-#searchbtn{
-  position: fixed;
-  bottom: 0px;
-  margin-bottom: 70px;
+.searchResult {
+  margin-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-gap: 25px;
+  grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
+  padding: 10px;
 }
-@media (min-width: 480px){
-    .container{
-      width: 70%;
-      margin: auto;
-    }
-    .searchBtn{
-      width: 25%;
-    }
+@media (min-width: 480px) {
+  .container {
+    width: 70%;
+    margin: auto;
+  }
+  .searchBtn {
+    width: 25%;
+  }
 }

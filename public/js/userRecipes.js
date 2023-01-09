@@ -46,7 +46,7 @@ function renderRecipe(recipes) {
   recipes.map((result) => {
     recipeHTML += `
     <div class="items">
-        <img src="images/food.jpg" alt="food" />
+        <img src="${result.imageUri}" alt="food" />
         
         <div class="box">
           <div class="flex-container">

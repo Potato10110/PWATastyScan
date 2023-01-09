@@ -82,10 +82,9 @@ input {
 .groceries {
   margin-top: 10px;
   min-width: 250px;
-  min-height: 600px;
+  min-height: 500px;
   background: white;
-  padding-left: 20px;
-  padding-top: 20px;
+  padding: 20px;
 }
 #allItems,
 p {
@@ -105,5 +104,21 @@ p {
   .navIcons {
     width: 24px;
     height: 24px;
+  }
+  .groceries{
+    max-height: 600px;
+    background: white;
+    }
+}
+@media (min-width: 300px) {
+  .groceries{
+  min-height: 560px;
+  background: white;
+  }
+}
+@media (min-height: 800px) {
+  .groceries{
+  min-height: 700px;
+  background: white;
   }
 }
