@@ -40,7 +40,7 @@ const recipeDB = collection(db, "UserRecipes");
 //   // console.log(doc.id, " => ", doc.id);
 // });
 
-const q = query(collection(db, "UserRecipes"), where("recipeName", "==", "Roasted Garlic-Parmesan Cabbage"));
+const q = query(collection(db, "UserRecipes"), where("recipeName", "==", "Crispy Pata Kare Kare"));
 
 const querySnapshot = await getDocs(q);
 let recipe = [];

@@ -49,7 +49,7 @@ $(document).ready(function () {
     // predict can take in an image, video or canvas html element
     const predictions = await model.predict(webcam.canvas);
     for (let i = 0; i < maxPredictions; i++) {
-      if (predictions[i].probability > 0.90) {
+      if (predictions[i].probability > 1.00) {
         const classPrediction = predictions[i].className;
         classPredictions.push(classPrediction);
         labelContainer.childNodes[i].innerHTML = classPrediction;
