@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #ffde59;
+  background-color: #ffffff;
   height: 100vh;
 }
 .profilePic,
@@ -19,8 +19,9 @@ img {
 .profilePic .userName {
   text-align: center;
   margin-top: 10px;
-  color: #008037;
+  color: #48a231;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 .profilePic {
   z-index: 0;
@@ -37,7 +38,7 @@ button,
   padding: 7px;
   border-radius: 10px;
   border: none;
-  background-color: #008037;
+  background-color: #48a231;
   color: #ffffff;
   display: flex;
   justify-content: center;
@@ -62,7 +63,7 @@ button,
   padding: 10px;
   margin: 35px 0px 0px 20px;
   width: 70px;
-  background-color: #008037;
+  background-color: #48a231;
   color: white;
   outline: none;
   border: none;
