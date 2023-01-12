@@ -39,8 +39,9 @@ canvas {
   border-radius: 20px;
 }
 #label-container {
-  background-color: #ffffff;
+  background-color: #48a231;
   padding: 25px;
+  color: #ffffff;
   margin: 20px;
   border-radius: 20px;
   font-family: Arial, Helvetica, sans-serif;

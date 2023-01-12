@@ -49,7 +49,7 @@ $(document).ready(function () {
     // predict can take in an image, video or canvas html element
     const predictions = await model.predict(webcam.canvas);
     for (let i = 0; i < maxPredictions; i++) {
-      if (predictions[i].probability > 1.00) {
+      if (predictions[i].probability > 0.66) {
         const classPrediction = predictions[i].className;
         classPredictions.push(classPrediction);
         labelContainer.childNodes[i].innerHTML = classPrediction;
@@ -74,7 +74,7 @@ $(document).ready(function () {
   let fromSearch = 0;
   let toSearch = 5;
   async function SearchRecipeAPI() {
-    const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=${fromSearch}&to=${toSearch}&random=true`;
+    const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=${fromSearch}&to=${toSearch}&health=low-sugar&random=true`;
     const response = await fetch(baseURL);
     const data = await response.json();
     generateHTML(data.hits);
