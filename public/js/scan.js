@@ -125,7 +125,7 @@ function generateHTML(results) {
     console.log(result);
     recipe_id++;
     generatedHTML += `
-        <div class="item" class="searchItems" id="recipe${recipe_id}">
+        <div class="item" id="recipe${recipe_id}">
           <img src="${result.recipe.image}" alt="img">
           <div class="flex-container">
             <h1 class="title">${result.recipe.label}</h1>

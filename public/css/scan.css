@@ -78,9 +78,6 @@ canvas {
   grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
   padding: 10px;
 }
-.searchItems{
-  background-color: #48a231;
-}
 .instruction{
   padding: 20px 10px 0 10px;
   color: #48a231;

@@ -109,7 +109,7 @@ img {
 .item {
   width: 100%;
   border-radius: 8px;
-  background-color: rgb(37, 37, 37);
+  background-color: #48a231;
   padding: 15px;
   overflow: hidden;
 }
