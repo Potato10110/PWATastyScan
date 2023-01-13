@@ -3,9 +3,11 @@
     "short_name": "TastyScan",
     "start_url": "/public/index.html",
     "lang": "en-US",
-    "background_color": "#FFDE59",
-    "theme_color": "#fbc02d",
+    "description": "A recipe Web App",
+    "background_color": "#ffffff",
+    "theme_color": "#48a231",
     "display": "standalone",
+    "orientation": "portrait",
     "icons": [
         {
             "src": "icons/manifest-icon-192.maskable.png",

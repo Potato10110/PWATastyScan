@@ -2,9 +2,17 @@ var CacheName = "App-cache";
 var Assets = [
   "/",
   "/public",
-  "/public/index.html",
-  "css/login.css",
-  "js/login.js",
+  "./homepage.html",
+  "./list.html",
+  "./profile.html",
+  "./recipeForm.html",
+  "./recipePage.html",
+  "./Scan.html",
+  "./search.html",
+  "./SearchResult.html",
+  "./css/login.css",
+  "./js/login.js",
+  "./icons/manifest-icon-192.maskable.png",
 ];
 
 self.addEventListener("install", function (e) {
@@ -17,9 +25,4 @@ self.addEventListener("install", function (e) {
 });
 
 self.addEventListener("fetch", function (e) {
-  e.respondWith(
-    caches.match(e.request).then(function (response) {
-      return response || fetch(e.request);
-    })
-  );
 });
