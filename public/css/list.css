@@ -87,7 +87,7 @@ input {
   margin-top: 10px;
   min-width: 250px;
   min-height: 500px;
-  background: white;
+  background: #eeeeee;
   padding: 20px;
 }
 #allItems,
@@ -111,18 +111,18 @@ p {
   }
   .groceries{
     max-height: 600px;
-    background: white;
+    background: #eeeeee;
     }
 }
 @media (min-width: 300px) {
   .groceries{
   min-height: 560px;
-  background: white;
+  background: #eeeeee;
   }
 }
 @media (min-height: 800px) {
   .groceries{
   min-height: 700px;
-  background: white;
+  background: #eeeeee;
   }
 }
