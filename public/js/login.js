@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider} from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,6 +20,20 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+const auth = getAuth();
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in.
+    // Redirect to home page or take any other desired action.
+    window.location.href = './homepage.html';
+  } else {
+    // No user is signed in.
+  }
+});
+
+
 const Gprovider = new GoogleAuthProvider(app);
 const Fprovider = new FacebookAuthProvider(app);
 const Gauth = getAuth();

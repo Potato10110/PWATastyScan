@@ -19,18 +19,19 @@ var Assets = [
 the "Assets" array to the new cache.  */
 self.addEventListener("install", function (e) {
   e.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-          cacheNames.map(function(cacheName) {
-              if (cacheName !== CacheName) {
-                  return caches.delete(cacheName);
-              }
+    caches.open(CacheName).then(function (Caches) {
+      caches.keys().then(function (cacheNames) {
+        return Promise.all(
+          cacheNames.map(function (cacheName) {
+            if (cacheName !== CacheName) {
+              return caches.delete(cacheName);
+            }
           })
-      );
+        );
+      });
+      return Caches.addAll(Assets);
     })
   );
-  self.skipWaiting();
 });
 
-self.addEventListener("fetch", function (e) {
-});
+self.addEventListener("fetch", function (e) {});
