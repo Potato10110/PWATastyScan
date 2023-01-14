@@ -1,7 +1,7 @@
 {
     "name": "TastyScan",
     "short_name": "TastyScan",
-    "start_url": "/public/index.html",
+    "start_url": "./index.html",
     "lang": "en-US",
     "description": "A recipe Web App",
     "background_color": "#ffffff",
