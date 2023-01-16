@@ -7,7 +7,7 @@ import {
   where,
   getDocs,
   onSnapshot,
-  doc
+  doc,
 } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -30,7 +30,7 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 const recipePage = document.getElementById("recipeBox");
-const recipeDB = collection(db, "UserRecipes");
+//const recipeDB = collection(db, "UserRecipes").doc(recipeId);
 
 // const select = await getDocs(collection(db, "UserRecipes"));
 // let idTo;
@@ -40,16 +40,35 @@ const recipeDB = collection(db, "UserRecipes");
 //   // console.log(doc.id, " => ", doc.id);
 // });
 
-const q = query(collection(db, "UserRecipes"), where("recipeName", "==", "Healthy Ginataang Gulay with Tofu and Shrimp"));
+//const urlParams = new URLSearchParams(window.location.search);
+//const recipeId = urlParams.get("recipeId");
 
+
+const q = query(collection(db, "UserRecipes"), where("recipeName", "==", "Healthy Ginataang Gulay with Tofu and Shrimp"));
 const querySnapshot = await getDocs(q);
 let recipe = [];
   querySnapshot.forEach((doc) => {
     recipe.push({ ...doc.data(), id: doc.id });
     console.log(doc.id, " => ", doc.data());
+    renderRecipe(recipe)
   });
 
-  renderRecipe(recipe);
+  /*
+  if(recipeId){
+    const recipeRef = collection(db, "UserRecipes").doc(documentId);
+    recipeRef.get().then(function(doc) {
+      if (doc.exists) {
+        const recipe = doc.data();
+        // use the recipe data to update the HTML elements
+        renderRecipe(recipe);
+      } else {
+        console.log("No such document!");
+      }
+    }).catch(function(error) {
+      console.log("Error getting document:", error);
+    });
+  }*/
+
 
 // const firestore = firebase.firestore();
 
@@ -67,11 +86,11 @@ let recipe = [];
 //   renderRecipe(recipe);
 // });
 
-
 function renderRecipe(recipes) {
   let recipeHTML = "";
   recipes.map((result) => {
     recipeHTML += `
+    <button class="back" id="backButton">Back</button>
       <img src="${result.imageUri}" />
       <div class="container">
       <h1 class="recipeTitle">${result.recipeName}</h1>
@@ -97,3 +116,8 @@ function renderRecipe(recipes) {
   });
   recipePage.innerHTML = recipeHTML;
 }
+
+const backButton = document.getElementById("backButton");
+backButton.addEventListener("click", () => {
+  window.location.assign("./userRecipe.html");
+});

@@ -151,3 +151,8 @@ function generateHTML(results) {
   });
   searchResult.innerHTML = generatedHTML;
 }
+
+var refreshBtn = document.getElementById("refreshBtn");
+refreshBtn = addEventListener("click", () => {
+  location.reload();
+});

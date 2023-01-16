@@ -1,4 +1,4 @@
-var CacheName = "TastyScan-cache";
+var CacheName = "App-cache";
 var Assets = [
   "/",
   "/public",

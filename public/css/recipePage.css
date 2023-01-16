@@ -64,3 +64,21 @@ img {
   letter-spacing: 1px;
   white-space: pre-line;
 }
+.recipeBox{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.back{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  letter-spacing: 2px;
+  width: 90px;
+  position: absolute;
+  padding: 10px;
+  margin: 20px 0 0 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #008037;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}

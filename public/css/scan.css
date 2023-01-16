@@ -48,6 +48,7 @@ canvas {
   font-size: 1.5rem;
   overflow: auto;
   height: 340px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 .searchDiv {
   display: flex;
@@ -92,6 +93,26 @@ canvas {
     margin: auto;
   }
   .searchBtn {
-    width: 25%;
+    width: 20%;
   }
+  .instruction{
+    text-align: center;
+  }
+}
+.RefreshBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.refreshBtn{
+  background-color: #008037;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 9px;
+  color: white;
+  letter-spacing: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  font-weight: bold;
 }
