@@ -49,10 +49,12 @@ async function predict() {
   // predict can take in an image, video or canvas html element
   const predictions = await model.predict(webcam.canvas);
   for (let i = 0; i < maxPredictions; i++) {
-    if (predictions[i].probability > 0.66) {
+    if (predictions[i].probability > 0.80) {
       const classPrediction = predictions[i].className;
       classPredictions.push(classPrediction);
       labelContainer.childNodes[i].innerHTML = classPrediction;
+    }else{
+      labelContainer.childNodes[i].innerHTML = "Not found";
     }
     /*const classPrediction =
         prediction[i].className +
@@ -64,6 +66,13 @@ async function predict() {
 const APP_ID = "4c42e7f4";
 const APP_key = "ef6382032d826f721fe47b89415450b0";
 const searchResult = document.querySelector("#searchResult");
+
+const refreshBtn = document.getElementById("refreshBtn");
+refreshBtn.addEventListener("click", () => {
+  location.reload();
+});
+
+
 const searchRecipe = document.getElementById("searchRecipe");
 searchRecipe.addEventListener("click", (e) => {
   e.preventDefault();
@@ -152,11 +161,6 @@ function generateHTML(results) {
   });
   searchResult.innerHTML = generatedHTML;
 }
-
-var refreshBtn = document.getElementById("refreshBtn");
-refreshBtn = addEventListener("click", () => {
-  location.reload();
-});
 
 const backBtnn = document.getElementById("backBtnn");
 backBtnn.addEventListener("click", () => {

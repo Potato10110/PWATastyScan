@@ -82,7 +82,7 @@ canvas {
 .instruction{
   padding: 20px 10px 0 10px;
   color: #48a231;
-  margin: 60px 0 10px 0;
+  margin: 10px 0 10px 0;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
@@ -120,9 +120,8 @@ canvas {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   letter-spacing: 2px;
   width: 90px;
-  position: fixed;
   padding: 10px;
-  margin: 6px 0 0 20px;
+  margin: 6px 0 0 10px;
   border-radius: 10px;
   border: none;
   background-color: #008037;
