@@ -16,15 +16,15 @@ searchBtn.addEventListener("submit", (e) => {
 });
 let sessionResult = [];
 
-let fromSearch = 0
-let toSearch = 5
+let fromSearch = 0;
+let toSearch = 5;
 async function SearchRecipeAPI() {
   const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=${fromSearch}&to=${toSearch}&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   generateHTML(data.hits);
-  fromSearch += 6
-  toSearch += 6
+  fromSearch += 6;
+  toSearch += 6;
 }
 
 $(document).ready(function () {
@@ -35,7 +35,7 @@ $(document).ready(function () {
   }
   $(".health-labels").hide();
 
-  lowSugarFilter()
+  lowSugarFilter();
 });
 
 $(document).on("click", ".more-details.close", function () {
@@ -82,6 +82,7 @@ function generateHTML(results) {
           }">View Recipe</a>
         </div>
         <p class="item-data"><b>Meal Type:</b> ${result.recipe.mealType}</p>
+        <p class="item-data"><b>Servings:</b> ${result.recipe.yield}</p>
         <p class="item-data"><b>Calories:</b> ${result.recipe.calories.toFixed(
           2
         )}</p>
@@ -107,16 +108,20 @@ function generateHTML(results) {
 const filterResult = document.getElementById("filter-results");
 const breakfastBtn = document.getElementById("breakfast-btn");
 // const lowSugarBtn = document.getElementById("low-sugar-btn");
-const lowSugarBtn = document.querySelector('#low-sugar-btn');
+const lowSugarBtn = document.querySelector("#low-sugar-btn");
 const lunchBtn = document.getElementById("lunch-btn");
 const dinnerBtn = document.getElementById("dinner-btn");
 const snackBtn = document.getElementById("snack-btn");
 
-
+let fromLowFilter = 0;
+let toLowFilter = 5;
 async function lowSugarFilter() {
-  const baseURL = `https://api.edamam.com/search?q=low-sugar&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=5&random=true`;
+  const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromLowFilter}&to=${toLowFilter}&health=low-sugar&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
+  console.log(data);
+  fromLowFilter += 6;
+  toLowFilter += 6;
   lowSugarHealthHTML(data.hits);
 }
 
@@ -138,6 +143,7 @@ function lowSugarHealthHTML(results) {
           }">View Recipe</a>
         </div>
         <p class="item-data"><b>Meal Type:</b> ${result.recipe.mealType}</p>
+        <p class="item-data"><b>Servings:</b> ${result.recipe.yield}</p>
         <p class="item-data"><b>Calories:</b> ${result.recipe.calories.toFixed(
           2
         )}</p>
@@ -147,7 +153,7 @@ function lowSugarHealthHTML(results) {
             : "No Data Found"
         }</p>
         <button class="more-details close">See more details</button>
-        <p class="item-data health-labels"><b>Health labels:</b> ${
+        <p class="item-data health-labels"><b>Health labels:</b>  ${
           result.recipe.healthLabels
         }</p>
       </div>
@@ -161,15 +167,15 @@ lowSugarBtn.addEventListener("click", () => {
   lowSugarAPI();
 });
 
-let fromParaLow = 0
-let toParaLow = 5
+let fromParaLow = 0;
+let toParaLow = 5;
 async function lowSugarAPI() {
   const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaLow}&to=${toParaLow}&health=low-sugar&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   lowSugarHTML(data.hits);
-  fromParaLow += 6
-  toParaLow += 6
+  fromParaLow += 6;
+  toParaLow += 6;
 }
 
 function lowSugarHTML(results) {
@@ -190,6 +196,7 @@ function lowSugarHTML(results) {
           }">View Recipe</a>
         </div>
         <p class="item-data"><b>Meal Type:</b> ${result.recipe.mealType}</p>
+        <p class="item-data"><b>Servings:</b> ${result.recipe.yield}</p>
         <p class="item-data"><b>Calories:</b> ${result.recipe.calories.toFixed(
           2
         )}</p>
@@ -213,15 +220,15 @@ breakfastBtn.addEventListener("click", (e) => {
   BreakfastAPI();
 });
 
-let fromParaBreak = 0
-let toParaBreak = 5
+let fromParaBreak = 0;
+let toParaBreak = 5;
 async function BreakfastAPI() {
   const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaBreak}&to=${toParaBreak}&mealType=breakfast&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   breakfastHTML(data.hits);
-  fromParaBreak += 6
-  toParaBreak += 6
+  fromParaBreak += 6;
+  toParaBreak += 6;
 }
 
 function breakfastHTML(results) {
@@ -242,6 +249,7 @@ function breakfastHTML(results) {
           }">View Recipe</a>
         </div>
         <p class="item-data"><b>Meal Type:</b> ${result.recipe.mealType}</p>
+        <p class="item-data"><b>Servings:</b> ${result.recipe.yield}</p>
         <p class="item-data"><b>Calories:</b> ${result.recipe.calories.toFixed(
           2
         )}</p>
@@ -265,15 +273,15 @@ lunchBtn.addEventListener("click", (e) => {
   LunchAPI();
 });
 
-let fromParaLunch = 0
-let toParaLunch = 5
+let fromParaLunch = 0;
+let toParaLunch = 5;
 async function LunchAPI() {
   const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaLunch}&to=${toParaLunch}&mealType=lunch&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   lunchHTML(data.hits);
-  fromParaLunch += 6
-  toParaLunch += 6
+  fromParaLunch += 6;
+  toParaLunch += 6;
 }
 
 function lunchHTML(results) {
@@ -294,6 +302,7 @@ function lunchHTML(results) {
           }">View Recipe</a>
         </div>
         <p class="item-data"><b>Meal Type:</b> ${result.recipe.mealType}</p>
+        <p class="item-data"><b>Servings:</b> ${result.recipe.yield}</p>
         <p class="item-data"><b>Calories:</b> ${result.recipe.calories.toFixed(
           2
         )}</p>
@@ -317,15 +326,15 @@ dinnerBtn.addEventListener("click", (e) => {
   DinnerAPI();
 });
 
-let fromParaDin = 0
-let toParaDin = 5
+let fromParaDin = 0;
+let toParaDin = 5;
 async function DinnerAPI() {
   const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaDin}&to=${toParaDin}&mealType=dinner&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   DinnerHTML(data.hits);
-  fromParaDin += 6
-  toParaDin += 6
+  fromParaDin += 6;
+  toParaDin += 6;
 }
 
 function DinnerHTML(results) {
@@ -346,6 +355,7 @@ function DinnerHTML(results) {
           }">View Recipe</a>
         </div>
         <p class="item-data"><b>Meal Type:</b> ${result.recipe.mealType}</p>
+        <p class="item-data"><b>Servings:</b> ${result.recipe.yield}</p>
         <p class="item-data"><b>Calories:</b> ${result.recipe.calories.toFixed(
           2
         )}</p>
@@ -369,15 +379,16 @@ snackBtn.addEventListener("click", (e) => {
   SnackAPI();
 });
 
-let fromParaSn = 0
-let toParaSn = 5
+let fromParaSn = 0;
+let toParaSn = 5;
 async function SnackAPI() {
   const baseURL = `https://api.edamam.com/search?q=""&app_id=${APP_ID}&app_key=${APP_key}&from=${fromParaSn}&to=${toParaSn}&mealType=snack&random=true`;
   const response = await fetch(baseURL);
   const data = await response.json();
   SnackHTML(data.hits);
-  fromParaSn += 6
-  toParaSn += 6
+  console.log(data);
+  fromParaSn += 6;
+  toParaSn += 6;
 }
 
 function SnackHTML(results) {
@@ -398,6 +409,7 @@ function SnackHTML(results) {
           }">View Recipe</a>
         </div>
         <p class="item-data"><b>Meal Type:</b> ${result.recipe.mealType}</p>
+        <p class="item-data"><b>Servings:</b> ${result.recipe.yield}</p>
         <p class="item-data"><b>Calories:</b> ${result.recipe.calories.toFixed(
           2
         )}</p>
@@ -415,4 +427,3 @@ function SnackHTML(results) {
   });
   filterResult.innerHTML = snackHTML;
 }
-
