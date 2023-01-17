@@ -129,11 +129,12 @@ function generateHTML(results) {
           <img src="${result.recipe.image}" alt="img">
           <div class="flex-container">
             <h1 class="title">${result.recipe.label}</h1>
-            <a class="view-btn" target="_self" href="${
+            <a class="view-btn" target="_blank" href="${
               result.recipe.url
             }">View Recipe</a>
           </div>
           <p class="item-data"><b>Meal Type:</b> ${result.recipe.mealType}</p>
+          <p class="item-data"><b>Servings:</b> ${result.recipe.yield}</p>
           <p class="item-data"><b>Calories:</b> ${result.recipe.calories.toFixed(
             2
           )}</p>
@@ -155,4 +156,9 @@ function generateHTML(results) {
 var refreshBtn = document.getElementById("refreshBtn");
 refreshBtn = addEventListener("click", () => {
   location.reload();
+});
+
+const backBtnn = document.getElementById("backBtnn");
+backBtnn.addEventListener("click", () => {
+  window.location.assign("./homepage.html");
 });

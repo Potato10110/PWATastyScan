@@ -404,7 +404,7 @@ function SnackHTML(results) {
         <img src="${result.recipe.image}" alt="img">
         <div class="flex-container">
           <h1 class="filter-title">${result.recipe.label}</h1>
-          <a class="view-btn" target="_self" href="${
+          <a class="view-btn" target="_blank" href="${
             result.recipe.url
           }">View Recipe</a>
         </div>
