@@ -67,10 +67,3 @@ function renderRecipe(recipes) {
   userRecipe.innerHTML = recipeHTML;
 }
 
-/*const viewRecipeLink = document.getElementById("view-recipe-link");
-if(viewRecipeLink){
-  viewRecipeLink.addEventListener("click", function() {
-    const recipeId = this.getAttribute("data-recipe-id");
-    this.href = `/recipePage.html?recipeId=${recipeId}`;
-  });
-}*/
