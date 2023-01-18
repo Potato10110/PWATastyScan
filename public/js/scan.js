@@ -49,12 +49,10 @@ async function predict() {
   // predict can take in an image, video or canvas html element
   const predictions = await model.predict(webcam.canvas);
   for (let i = 0; i < maxPredictions; i++) {
-    if (predictions[i].probability > 0.80) {
+    if (predictions[i].probability > 1.00) {
       const classPrediction = predictions[i].className;
       classPredictions.push(classPrediction);
       labelContainer.childNodes[i].innerHTML = classPrediction;
-    }else{
-      labelContainer.childNodes[i].innerHTML = "Not found";
     }
     /*const classPrediction =
         prediction[i].className +
@@ -162,7 +160,3 @@ function generateHTML(results) {
   searchResult.innerHTML = generatedHTML;
 }
 
-const backBtnn = document.getElementById("backBtnn");
-backBtnn.addEventListener("click", () => {
-  window.location.assign("./homepage.html");
-});
