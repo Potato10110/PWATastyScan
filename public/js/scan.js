@@ -49,7 +49,7 @@ async function predict() {
   // predict can take in an image, video or canvas html element
   const predictions = await model.predict(webcam.canvas);
   for (let i = 0; i < maxPredictions; i++) {
-    if (predictions[i].probability > 1.00) {
+    if (predictions[i].probability == 1.00) {
       const classPrediction = predictions[i].className;
       classPredictions.push(classPrediction);
       labelContainer.childNodes[i].innerHTML = classPrediction;
@@ -75,7 +75,11 @@ const searchRecipe = document.getElementById("searchRecipe");
 searchRecipe.addEventListener("click", (e) => {
   e.preventDefault();
   searchQuery = classPredictions;
-  SearchRecipeAPI();
+  if(searchQuery == ""){
+    alert("Error empty Items");
+  }else{
+    SearchRecipeAPI();
+  }
 });
 let sessionResult = [];
 $(document).ready(function () {
