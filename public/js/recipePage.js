@@ -53,39 +53,6 @@ let recipe = [];
     renderRecipe(recipe)
   });
 
-  /*
-  if(recipeId){
-    const recipeRef = collection(db, "UserRecipes").doc(documentId);
-    recipeRef.get().then(function(doc) {
-      if (doc.exists) {
-        const recipe = doc.data();
-        // use the recipe data to update the HTML elements
-        renderRecipe(recipe);
-      } else {
-        console.log("No such document!");
-      }
-    }).catch(function(error) {
-      console.log("Error getting document:", error);
-    });
-  }*/
-
-
-// const firestore = firebase.firestore();
-
-// onSnapshot(recipeDB, (snapshot) => {
-//   let recipe = [];
-//   // let count = 0;
-//   snapshot.docs.forEach((doc) => {
-//     // if (count >= 1) {
-//     //   return;
-//     // }
-//     recipe.push({ ...doc.data(), id: doc.id });
-//     // count++;
-//   });
-//   //console.table(recipe);
-//   renderRecipe(recipe);
-// });
-
 function renderRecipe(recipes) {
   let recipeHTML = "";
   recipes.map((result) => {

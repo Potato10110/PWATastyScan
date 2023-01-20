@@ -51,7 +51,7 @@ function renderRecipe(recipes) {
         <div class="box">
           <div class="flex-container">
             <h1>${result.recipeName}</h1>
-            <a href="recipePage.html" class="view-btn" id="view-recipe-link" data-recipe-id="{{documentId}}" target="_self">View Recipe</a>
+            <a href="recipePage.html" class="view-btn" id="${result.id}" target="_self">View Recipe</a>
           </div>
           <p class="item-data user">${result.name}</p>
           <div class="flex-container">
@@ -66,4 +66,3 @@ function renderRecipe(recipes) {
   });
   userRecipe.innerHTML = recipeHTML;
 }
-
