@@ -66,3 +66,5 @@ function renderRecipe(recipes) {
   });
   userRecipe.innerHTML = recipeHTML;
 }
+const recipeID = document.querySelector(".view-btn").getAttribute("id");
+export { recipeID };

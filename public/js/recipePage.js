@@ -43,8 +43,8 @@ const recipePage = document.getElementById("recipeBox");
 //const urlParams = new URLSearchParams(window.location.search);
 //const recipeId = urlParams.get("recipeId");
 
-
-const q = query(collection(db, "UserRecipes"), where("recipeName", "==", "Healthy Ginataang Gulay with Tofu and Shrimp"));
+//import { recipeID } from './userRecipes';
+const q = query(collection(db, "UserRecipes"), where("recipeName", "==", "Chicken Veggie Packets"));
 const querySnapshot = await getDocs(q);
 let recipe = [];
   querySnapshot.forEach((doc) => {
@@ -83,7 +83,6 @@ function renderRecipe(recipes) {
   });
   recipePage.innerHTML = recipeHTML;
 }
-
 const backButton = document.getElementById("backButton");
 backButton.addEventListener("click", () => {
   window.location.assign("./userRecipe.html");
